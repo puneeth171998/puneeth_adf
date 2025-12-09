@@ -1,0 +1,47 @@
+{
+	"name": "sourceConfig",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "source_config.json",
+				"folderPath": "source_common",
+				"container": "datafactory-config"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"source_container": {
+					"type": "string"
+				},
+				"target_container": {
+					"type": "string"
+				},
+				"files": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"file_name": {
+								"type": "string"
+							},
+							"source_path": {
+								"type": "string"
+							},
+							"target_path": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
