@@ -111,7 +111,7 @@
 											"type": "Expression"
 										},
 										"Directory": {
-											"value": "@item().source_path",
+											"value": "@item().directory",
 											"type": "Expression"
 										}
 									}
