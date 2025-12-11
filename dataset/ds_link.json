@@ -8,12 +8,20 @@
 				"baseUrl": "https://www.alphavantage.co/query"
 			}
 		},
+		"parameters": {
+			"symbol": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "?function=INCOME_STATEMENT&symbol=@{Symbol}&apikey=@{ApiKey}"
+				"relativeUrl": {
+					"value": "@concat('?function=INCOME_STATEMENT&symbol=', dataset().symbol, '&apikey=YC49EP4FJMS43H40 ')",
+					"type": "Expression"
+				}
 			}
 		},
 		"schema": {}
