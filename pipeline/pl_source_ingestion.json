@@ -74,11 +74,17 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": {
-								"value": "@activity('env_config').output.value[0]  ",
+								"value": "@activity('env_config').output.value[0]['config']['container']",
 								"type": "Expression"
 							},
-							"directory": "@activity('env_config').output.value[0]  ",
-							"filename": "@activity('env_config').output.value[0]  "
+							"directory": {
+								"value": "@activity('env_config').output.value[0]['config']['source']['path']",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@activity('env_config').output.value[0]['config']['source']['filename']",
+								"type": "Expression"
+							}
 						}
 					},
 					"firstRowOnly": false
