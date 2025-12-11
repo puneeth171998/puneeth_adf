@@ -1,0 +1,25 @@
+{
+	"name": "ds_link",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"baseUrl": "https://www.alphavantage.co/query"
+			}
+		},
+		"parameters": {
+			"relUrl": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		},
+		"schema": {}
+	}
+}
