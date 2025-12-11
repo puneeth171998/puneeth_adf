@@ -209,7 +209,13 @@
 							"outputs": [
 								{
 									"referenceName": "ds_destination",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"companyName": {
+											"value": "@item().Company",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
