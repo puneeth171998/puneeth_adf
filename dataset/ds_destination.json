@@ -5,13 +5,18 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"companyName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@concat(formatDateTime(utcNow(), 'yyyymmdd_hhMMss'),'.json')",
+					"value": "@concat(dataset().companyName,formatDateTime(utcNow(), 'yyyymmdd_hhMMss'),'.json')",
 					"type": "Expression"
 				},
 				"container": "puneeth"
