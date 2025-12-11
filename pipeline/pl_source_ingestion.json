@@ -155,7 +155,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('env_config').output.value[0]['config']['source']['filename'][0].symbols",
+						"value": "@activity('source_config_details').output.value[0]['symbols']",
 						"type": "Expression"
 					},
 					"isSequential": true,
