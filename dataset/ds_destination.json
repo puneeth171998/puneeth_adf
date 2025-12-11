@@ -1,0 +1,37 @@
+{
+	"name": "ds_destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "puneeth"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"file": {
+					"type": "string"
+				},
+				"total_errors": {
+					"type": "integer"
+				},
+				"duplicate_rows": {
+					"type": "integer"
+				},
+				"missing_columns": {
+					"type": "integer"
+				},
+				"timestamp": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
