@@ -69,9 +69,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": {
-								"value": "@activity('env_config').output.value",
+								"value": "@activity('env_config').output.value[0]  ",
 								"type": "Expression"
-							}
+							},
+							"directory": "@activity('env_config').output.value[0]  ",
+							"filename": "@activity('env_config').output.value[0]  "
 						}
 					},
 					"firstRowOnly": false
