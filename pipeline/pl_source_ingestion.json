@@ -28,7 +28,12 @@
 					},
 					"dataset": {
 						"referenceName": "ds_env_config",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "datafactory-config",
+							"directory": "APV/src_common/env_config_lookup",
+							"filename": "env_config.json"
+						}
 					},
 					"firstRowOnly": false
 				}
