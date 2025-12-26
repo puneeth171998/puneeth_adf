@@ -1,0 +1,46 @@
+{
+	"name": "pl_source_ingest",
+	"properties": {
+		"activities": [
+			{
+				"name": "env_config",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ds_env_config",
+						"type": "DatasetReference",
+						"parameters": {
+							"Container": "datacon",
+							"Directory": "source_common/source_config",
+							"FileName": "source_config.json"
+						}
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "source"
+		},
+		"annotations": []
+	}
+}
