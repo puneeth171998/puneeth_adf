@@ -34,7 +34,8 @@
 							"Directory": "source_common/source_config",
 							"FileName": "source_config.json"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
