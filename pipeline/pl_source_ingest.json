@@ -32,7 +32,7 @@
 						"parameters": {
 							"Container": "datacon",
 							"Directory": "source_common/source_config",
-							"FileName": "source_config.json"
+							"FileName": "env_config.json"
 						}
 					},
 					"firstRowOnly": false
