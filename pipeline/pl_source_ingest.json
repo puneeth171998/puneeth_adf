@@ -31,7 +31,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"Container": "datacon",
-							"Directory": "source_common/source_config",
+							"Directory": "source_common/env_config",
 							"FileName": "env_config.json"
 						}
 					},
