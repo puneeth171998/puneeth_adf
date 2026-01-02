@@ -74,15 +74,15 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"Container": {
-								"value": "@activity('env_config').output.value[1]['config']['container']",
+								"value": "@activity('env_config').output.value[0]['config']['container']",
 								"type": "Expression"
 							},
 							"Directory": {
-								"value": "@activity('env_config').output.value[1]['config']['source']['path']",
+								"value": "@activity('env_config').output.value[0]['config']['source']['path']",
 								"type": "Expression"
 							},
 							"FileName": {
-								"value": "@activity('env_config').output.value[1]['config']['source']['filename']",
+								"value": "@activity('env_config').output.value[0]['config']['source']['filename']",
 								"type": "Expression"
 							}
 						}
