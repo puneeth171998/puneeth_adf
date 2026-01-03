@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "env_config",
+				"name": "env_config_lookup",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -27,64 +27,12 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "ds_env_config",
+						"referenceName": "ds_common_config",
 						"type": "DatasetReference",
 						"parameters": {
-							"Container": "datacon",
-							"Directory": "source_common/env_config",
-							"FileName": "env_config.json"
-						}
-					},
-					"firstRowOnly": false
-				}
-			},
-			{
-				"name": "getsourceconfigdetails",
-				"type": "Lookup",
-				"dependsOn": [
-					{
-						"activity": "env_config",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
-					},
-					"dataset": {
-						"referenceName": "ds_env_config",
-						"type": "DatasetReference",
-						"parameters": {
-							"Container": {
-								"value": "@activity('env_config').output.value[0]['config']['container']",
-								"type": "Expression"
-							},
-							"Directory": {
-								"value": "@activity('env_config').output.value[0]['config']['source']['path']",
-								"type": "Expression"
-							},
-							"FileName": {
-								"value": "@activity('env_config').output.value[0]['config']['source']['filename']",
-								"type": "Expression"
-							}
+							"container": "datafactory-config",
+							"directory": "avl/src_common/env_config_lookup",
+							"fileName": "env_config.json"
 						}
 					}
 				}
