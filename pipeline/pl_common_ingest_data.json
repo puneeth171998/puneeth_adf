@@ -1,0 +1,94 @@
+{
+	"name": "pl_common_ingest_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "GetSourceConfigDetails",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.00:10:00",
+					"retry": 3,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "LoopThruEachTable",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "GetSourceConfigDetails",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('GetSourceConfigDetails').output.value[0][concat('', pipeline().parameters.sourceName, '')]['tableList']",
+						"type": "Expression"
+					},
+					"batchCount": 15,
+					"activities": [
+						{
+							"name": "ExecuteMainPipeline",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"waitOnCompletion": true,
+								"parameters": {
+									"sourceName": {
+										"value": "@pipeline().parameters.sourceName",
+										"type": "Expression"
+									},
+									"sourceFileDate": {
+										"value": "@pipeline().parameters.sourceFileDate",
+										"type": "Expression"
+									},
+									"tableName": {
+										"value": "@item()",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"sourceName": {
+				"type": "string"
+			},
+			"sourceFileDate": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "common"
+		},
+		"annotations": []
+	}
+}
