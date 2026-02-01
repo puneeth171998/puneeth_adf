@@ -1,0 +1,18 @@
+{
+	"name": "ds_destination1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobstg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "zone1"
+			}
+		},
+		"schema": {}
+	}
+}
