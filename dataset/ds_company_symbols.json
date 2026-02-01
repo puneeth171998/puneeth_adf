@@ -1,0 +1,33 @@
+{
+	"name": "ds_company_symbols",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobstg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "company_symbols.csv",
+				"folderPath": "DDC",
+				"container": "datafactory-config"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Company",
+				"type": "String"
+			},
+			{
+				"name": "Symbol",
+				"type": "String"
+			}
+		]
+	}
+}
