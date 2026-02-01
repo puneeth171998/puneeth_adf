@@ -108,7 +108,13 @@
 							"outputs": [
 								{
 									"referenceName": "ds_destination1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"fileName": {
+											"value": "@concat(\n  item().Symbol,\n  '_',\n  formatDateTime(utcNow(),'yyyyMMdd_HHmmss'),\n  '.json'\n)\n",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
