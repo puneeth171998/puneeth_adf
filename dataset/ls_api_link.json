@@ -1,0 +1,18 @@
+{
+	"name": "ls_api_link",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_http_alphaventage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "query??function=INCOME_STATEMENT&symbol=@{Symbol}&apikey=@{ApiKey}\","
+			}
+		},
+		"schema": {}
+	}
+}
