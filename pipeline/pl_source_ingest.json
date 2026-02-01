@@ -98,7 +98,13 @@
 							"inputs": [
 								{
 									"referenceName": "ds_source",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"rel": {
+											"value": "@replace(\n  replace(\n    activity('configs').output.firstRow.sources[pipeline().parameters.source].Rest.RelativeUrl,\n    '@{Symbol}',\n    item().Symbol\n  ),\n  '@{ApiKey}',\n  pipeline().parameters.ApiKey\n)\n",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
@@ -142,6 +148,15 @@
 				}
 			}
 		],
+		"parameters": {
+			"source": {
+				"type": "string"
+			},
+			"Apikey": {
+				"type": "string",
+				"defaultValue": "YC49EP4FJMS43H40 "
+			}
+		},
 		"annotations": []
 	}
 }
