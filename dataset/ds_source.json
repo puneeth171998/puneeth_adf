@@ -1,0 +1,26 @@
+{
+	"name": "ds_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_http_alphaventage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"rel": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().rel",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}

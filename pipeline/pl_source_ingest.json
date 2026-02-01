@@ -7,7 +7,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "Configs",
+						"activity": "configs",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -54,7 +54,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('CompanyLookUp').output.Company",
+						"value": "@activity('CompanyLookUp').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -95,6 +95,12 @@
 								},
 								"enableStaging": false
 							},
+							"inputs": [
+								{
+									"referenceName": "ds_source",
+									"type": "DatasetReference"
+								}
+							],
 							"outputs": [
 								{
 									"referenceName": "ds_destination",
@@ -106,7 +112,7 @@
 				}
 			},
 			{
-				"name": "Configs",
+				"name": "configs",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -119,21 +125,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
+							"type": "JsonReadSettings"
 						}
 					},
 					"dataset": {
-						"referenceName": "ds_configs",
+						"referenceName": "ds_config_json",
 						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
+					}
 				}
 			}
 		],

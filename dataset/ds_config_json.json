@@ -1,0 +1,255 @@
+{
+	"name": "ds_config_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobstg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "configs.json",
+				"container": "source-config"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"globals": {
+					"type": "object",
+					"properties": {
+						"ApiKeySecretName": {
+							"type": "string"
+						},
+						"TimestampFormat": {
+							"type": "string"
+						},
+						"DateFolderFormat": {
+							"type": "string"
+						}
+					}
+				},
+				"sources": {
+					"type": "object",
+					"properties": {
+						"IncomeStatement": {
+							"type": "object",
+							"properties": {
+								"Rest": {
+									"type": "object",
+									"properties": {
+										"RelativeUrl": {
+											"type": "string"
+										},
+										"Method": {
+											"type": "string"
+										},
+										"Pagination": {
+											"type": "object",
+											"properties": {
+												"supportRFC5988": {
+													"type": "boolean"
+												}
+											}
+										}
+									}
+								},
+								"Landing": {
+									"type": "object",
+									"properties": {
+										"FolderZone": {
+											"type": "string"
+										},
+										"FileExtension": {
+											"type": "string"
+										},
+										"FileNamePattern": {
+											"type": "string"
+										}
+									}
+								},
+								"Merge": {
+									"type": "object",
+									"properties": {
+										"MidFolder": {
+											"type": "string"
+										},
+										"Wildcard": {
+											"type": "string"
+										},
+										"CopyBehavior": {
+											"type": "string"
+										}
+									}
+								},
+								"Staging": {
+									"type": "object",
+									"properties": {
+										"SqlStagingTable": {
+											"type": "string"
+										},
+										"StoredProcedure": {
+											"type": "string"
+										}
+									}
+								},
+								"Translator": {
+									"type": "object",
+									"properties": {
+										"CollectionRef": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"BalanceSheet": {
+							"type": "object",
+							"properties": {
+								"Rest": {
+									"type": "object",
+									"properties": {
+										"RelativeUrl": {
+											"type": "string"
+										},
+										"Method": {
+											"type": "string"
+										},
+										"Pagination": {
+											"type": "object",
+											"properties": {
+												"supportRFC5988": {
+													"type": "boolean"
+												}
+											}
+										}
+									}
+								},
+								"Landing": {
+									"type": "object",
+									"properties": {
+										"FolderZone": {
+											"type": "string"
+										},
+										"FileExtension": {
+											"type": "string"
+										},
+										"FileNamePattern": {
+											"type": "string"
+										}
+									}
+								},
+								"Merge": {
+									"type": "object",
+									"properties": {
+										"MidFolder": {
+											"type": "string"
+										},
+										"Wildcard": {
+											"type": "string"
+										},
+										"CopyBehavior": {
+											"type": "string"
+										}
+									}
+								},
+								"Staging": {
+									"type": "object",
+									"properties": {
+										"SqlStagingTable": {
+											"type": "string"
+										},
+										"StoredProcedure": {
+											"type": "string"
+										}
+									}
+								},
+								"Translator": {
+									"type": "object",
+									"properties": {
+										"CollectionRef": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"CashFlow": {
+							"type": "object",
+							"properties": {
+								"Rest": {
+									"type": "object",
+									"properties": {
+										"RelativeUrl": {
+											"type": "string"
+										},
+										"Method": {
+											"type": "string"
+										},
+										"Pagination": {
+											"type": "object",
+											"properties": {
+												"supportRFC5988": {
+													"type": "boolean"
+												}
+											}
+										}
+									}
+								},
+								"Landing": {
+									"type": "object",
+									"properties": {
+										"FolderZone": {
+											"type": "string"
+										},
+										"FileExtension": {
+											"type": "string"
+										},
+										"FileNamePattern": {
+											"type": "string"
+										}
+									}
+								},
+								"Merge": {
+									"type": "object",
+									"properties": {
+										"MidFolder": {
+											"type": "string"
+										},
+										"Wildcard": {
+											"type": "string"
+										},
+										"CopyBehavior": {
+											"type": "string"
+										}
+									}
+								},
+								"Staging": {
+									"type": "object",
+									"properties": {
+										"SqlStagingTable": {
+											"type": "string"
+										},
+										"StoredProcedure": {
+											"type": "string"
+										}
+									}
+								},
+								"Translator": {
+									"type": "object",
+									"properties": {
+										"CollectionRef": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
