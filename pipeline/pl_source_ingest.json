@@ -152,7 +152,7 @@
 			"source": {
 				"type": "string"
 			},
-			"Apikey": {
+			"ApiKey": {
 				"type": "string",
 				"defaultValue": "YC49EP4FJMS43H40 "
 			}
