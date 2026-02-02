@@ -8,6 +8,9 @@
 		"parameters": {
 			"fileName": {
 				"type": "string"
+			},
+			"directory": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -17,6 +20,10 @@
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
 					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().directory",
 					"type": "Expression"
 				},
 				"container": "zone1"
