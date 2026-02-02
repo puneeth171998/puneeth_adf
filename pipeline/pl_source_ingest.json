@@ -113,6 +113,10 @@
 										"fileName": {
 											"value": "@concat(\n  item().Symbol,\n  '_',\n  formatDateTime(utcNow(),'yyyyMMdd_HHmmss'),\n  '.json'\n)\n",
 											"type": "Expression"
+										},
+										"directory": {
+											"value": "@concat(\n    activity('configs').output.sources[pipeline().parameters.source], \n    '/', \n    formatDateTime(utcnow(), 'yyyy'), '/', \n    formatDateTime(utcnow(), 'MM'), '/', \n    formatDateTime(utcnow(), 'dd')\n)",
+											"type": "Expression"
 										}
 									}
 								}
